@@ -16,7 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <div className="flex flex-col w-full">
         {/* Navbar */}
         <Navbar />
-        <main className="flex-1 p-4 bg-gray-100">{children}</main>
+        <main className="myApp flex-1 p-4 bg-gray-100">{children}</main>
       </div>
     </div>
   );

@@ -1,22 +1,30 @@
 /* Apply global styles */
 html{
-  overflow-x: none;
+  overflow: hidden;
   margin: 0;
   padding: 0;
 }
 body {
   font-family: Arial, sans-serif;
+  overflow-y: none;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+
 }
 
 /* Navbar Styling */
 /* Navbar Styling */
+.myApp{
+  overflow: none;
+}
 nav {
   position: absolute;
   top: 0;
   width: calc(100% - 20px); /* Full width minus the desired spacing */
   margin: 0 10px;
-  padding: 0 10px; /* Add padding on the left and right */
+  padding: 0; /* Add padding on the left and right */
   left: 0;
   z-index: 50; /* Higher than other components */
   background-color: rgba(255, 255, 255); /* Semi-transparent background */
@@ -26,9 +34,8 @@ nav {
 }
 
 .first-box, .second-box {
-  max-width: 1200px; /* Optional: Restrict maximum width for better layout */
+  max-width: 100%; /* Optional: Restrict maximum width for better layout */
   margin: 0 auto; /* Center-align content */
-  padding: 0 10px; /* Ensure spacing from edges */
 }
 
 
@@ -103,37 +110,24 @@ nav .first-box .first_box_menu li a:hover {
   font-family: ' Prosper Sans Regular' sans-serif;
 }
 
-.second_nav {
-  position: fixed; /* Makes it independent of the flow */
-  display: flex;
-  padding: 0 10px; /* Add padding on the left and right */
-  margin: 0 10px;
-  top: 0; /* Position at the top of the screen */
-  left: 0;
-  width: calc(100% - 20px); /* Full width minus the desired spacing */
-  color: white;
-  z-index: 10; /* Higher than other components */
-  overflow-y: auto; /* Handle overflow for long content */
-  display: none; /* Hide by default */
-}
-.second_nav.active {
-  position: absolute;
-  background: #fff;
-  top: 6.1rem; /* Adjust to match the main nav's bottom */
-  overflow: auto;
-  display: block; /* Show when active */
-  padding: 0 10px; /* Ensure consistent spacing */
-  box-sizing: border-box; /* Includes padding in width calculation */
-}
+
 
 
 /* for second menu-bar at larger screens */
+.menu_container{
+  display: flex;
+}
 #menu_bar{
   position: relative;
   display: flex;
   top: 0;
-  left: 10rem;
-  justify-content: center;
+  /* left: 6rem; */
+  /* justify-content: end; */
+  margin: 0;
+}
+
+.second_nav{
+  display: none;
 }
 
 .second_nav li{
@@ -143,8 +137,13 @@ nav .first-box .first_box_menu li a:hover {
 }
 
 .second_nav li a{
-  color: #000;;
+  color: #6f6f6f;
   text-decoration: none;
+}
+
+.second_nav li a:hover{
+  color: #090101;
+  font-weight: 500;
 }
 
 .second_nav_container{
@@ -154,7 +153,6 @@ nav .first-box .first_box_menu li a:hover {
 }
 
 .search-icon{
-  padding-top: 7px;
   padding-right: 12px;
   font-size: 18px;
   color: #498dfc;
@@ -188,7 +186,7 @@ nav .first-box .first_box_menu li a:hover {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: calc(100% - 20px);
   height: 100%; /* Ensures it takes the full size of the parent container */
   display: flex;
   flex-direction: column;
@@ -217,7 +215,8 @@ nav .first-box .first_box_menu li a:hover {
 .hamburger_container{
   position: relative;
   display: flex;
-  top: 20px;
+  top: -4px;
+  align-items: center;
 }
 
 .hamburger-menu {
@@ -225,6 +224,13 @@ nav .first-box .first_box_menu li a:hover {
   font-size: 28px;
   color: #498dfc;
 }
+
+/* .drop_dwn{
+  margin: 0
+}
+.menu_open_links {
+  margin: 0;
+} */
 
 @media (min-width: 768px) {
   .header-box-title {
@@ -236,7 +242,17 @@ nav .first-box .first_box_menu li a:hover {
   font-size: 1.125rem; /* lg */
   z-index: 2; /* Above the overlay */
 }
-
+@media  (max-width: 769px) {
+  .hero_text {
+    position: relative;
+    margin: 0;
+    background: #000;
+    border-radius: 2rem 2rem 0 0;
+    height: 300px;
+    bottom: 0;
+    top: 10rem;
+  }
+}
 @media (min-width: 768px) {
   .header-box-subtext {
     font-size: 1.25rem; /* xl for medium screens and up */
@@ -244,12 +260,7 @@ nav .first-box .first_box_menu li a:hover {
 }
 
 @media (min-width: 1219px) {
-  .second_nav {
-    display: flex; /* xl for medium screens and up */
-  }
-  .hamburger-menu{
-    display: none;
-  }
+
 }
 @media  (max-width: 1219px) {
   #menu_bar{
@@ -262,14 +273,60 @@ nav .first-box .first_box_menu li a:hover {
     margin: 0;
     border-radius: 0;
   }
+  
   .first-box, .second-box {
     margin: 0 auto; /* Center-align content */
-    padding: 0 10px; /* Ensure spacing from edges */
   }
-  .second_nav{
+
+  .second_nav ul {
+    background: none;
+  }
+
+  .second_nav.active ul{
+    padding-left: 0;
+  }
+  .second_nav.active ul li a{
+    border-bottom: 1px solid #d4d4d4;
+  }
+  .second_nav.active ul li:hover a p{
+    color: #000;
+    font-weight: bold;
+  }
+
+  .second_nav.active ul li a{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 25px;
+    color: #3d3d3d;
+  }
+
+  .second_nav.active ul li a .arrow_right {
+    color: #498dfc;
+  }
+ /* Default State - Hidden off-screen */
+  .second_nav {
+    position: fixed;
+    top: 6.1rem; /* Adjust based on your header height */
     width: 100%;
-    margin: 0;
+    height: calc(100vh - 6.1rem); /* Full viewport minus header height */
+    background-color: #f7f7f7;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    transform: translateX(-100%); /* Hidden state (off-screen) */
+    transition: left 0.5s ease-in-out; /* Smooth sliding effect */
+    z-index: 10;
   }
+  
+  .second_nav.active {
+    position: absolute;
+    transform: translateX(0); /* Bring it fully into view */
+    overflow: auto;
+    display: block; /* Show when active */
+    padding: 0 10px; /* Ensure consistent spacing */
+    box-sizing: border-box; /* Includes padding in width calculation */
+    overflow-y: auto; /* Enable scrolling for content */
+  }
+
 }
 
 

@@ -4,7 +4,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faBars, faTimes, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -74,8 +74,8 @@ const Navbar = () => {
               {/* Brand Name Title */}
               {/* <span id="sc-logo" className="text-white text-xl">Standard Chartered</span> */}
           </div>
-            
-            {/* Navigation Links */}
+          <div className="menu_container">
+                      {/* Navigation Links */}
             <ul id='menu_bar' className="second_nav flex space-x-6">
               <li>
                 <Link href="/about-us" className="text-white hover:bg-gray-800 px-4 py-2">About Us</Link>
@@ -116,56 +116,65 @@ const Navbar = () => {
               <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
             </div>
           </div>
+          </div>
         </div>
       </nav>
 
-      {/* Second Nav - Appears when menu is open */}
-      {menuOpen && (
-        <div className={`second_nav ${menuOpen ? 'active' : ''}`}>
-          <ul className="space-y-4 text-lg">
-            <li>
-              <Link href="/about-us" className="block hover:bg-gray-800 px-4 py-2">
-                About Us
-              </Link>
-            </li>
-            <li>
-              <Link href="/corporate-investment" className="block hover:bg-gray-800 px-4 py-2">
-                Corporate & Investment
-              </Link>
-            </li>
-            <li>
-              <Link href="/wealth-retail" className="block hover:bg-gray-800 px-4 py-2">
-                Wealth & Retail
-              </Link>
-            </li>
-            <li>
-              <Link href="/ventures" className="block hover:bg-gray-800 px-4 py-2">
-                Ventures
-              </Link>
-            </li>
-            <li>
-              <Link href="/investors" className="block hover:bg-gray-800 px-4 py-2">
-                Investors
-              </Link>
-            </li>
-            <li>
-              <Link href="/insights" className="block hover:bg-gray-800 px-4 py-2">
-                Insights
-              </Link>
-            </li>
-            <li>
-              <Link href="/media" className="block hover:bg-gray-800 px-4 py-2">
-                Media
-              </Link>
-            </li>
-            <li>
-              <Link href="/careers" className="block hover:bg-gray-800 px-4 py-2">
-                Careers
-              </Link>
-            </li>
-          </ul>
-        </div>
-      )}
+    {/* Second Nav - Appears when menu is open */}
+    {menuOpen && (
+      <div className={`second_nav ${menuOpen ? 'active' : ''}`}>
+        <ul className="drop_dwn space-y-4 px-6 py-4">
+          <li>
+            <Link href="/about-us" className="menu_open_links">
+              <p>About Us</p>
+              <FontAwesomeIcon icon={faArrowRight} className="arrow_right" />
+            </Link>
+          </li>
+          <li>
+            <Link href="/corporate-investment" className="menu_open_links">
+              <p>Corporate & Investment</p>
+              <FontAwesomeIcon icon={faArrowRight} className="arrow_right" />
+            </Link>
+          </li>
+          <li>
+            <Link href="/wealth-retail" className="menu_open_links">
+              <p>Wealth & Retail</p>
+              <FontAwesomeIcon icon={faArrowRight} className="arrow_right" />
+            </Link>
+          </li>
+          <li>
+            <Link href="/ventures" className="menu_open_links">
+              <p>Ventures</p>
+              <FontAwesomeIcon icon={faArrowRight} className="arrow_right" />
+            </Link>
+          </li>
+          <li>
+            <Link href="/investors" className="menu_open_links">
+              <p>Investors</p>
+              <FontAwesomeIcon icon={faArrowRight} className="arrow_right" />
+            </Link>
+          </li>
+          <li>
+            <Link href="/insights" className="menu_open_links">
+              <p>Insights</p>
+              <FontAwesomeIcon icon={faArrowRight} className="arrow_right" />
+            </Link>
+          </li>
+          <li>
+            <Link href="/media" className="menu_open_links">
+              <p>Media</p>
+              <FontAwesomeIcon icon={faArrowRight} className="arrow_right" />
+            </Link>
+          </li>
+          <li>
+            <Link href="/careers" className="menu_open_links">
+              <p>Careers</p>
+              <FontAwesomeIcon icon={faArrowRight} className="arrow_right" />
+            </Link>
+          </li>
+        </ul>
+      </div>
+    )}
 
     </>
   );
