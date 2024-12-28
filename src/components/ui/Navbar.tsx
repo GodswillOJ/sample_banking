@@ -1,19 +1,59 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faBars, faTimes, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faBars, faTimes, faArrowRight} from "@fortawesome/free-solid-svg-icons";
 import {Logo2} from "./logo";
+import {MenuDropBox, MenuDropBox2} from "./MenuDropBox";
+import { useRouter } from "next/navigation";
+
+
+type DropBoxData = {
+  title: string;
+  description: string;
+  links: string[];
+};
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isClient, setIsClient] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [searchOpen, setSearchOpen] = useState(false);  
+  const [dropBoxData, setDropBoxData] = useState<DropBoxData | null>(null);
+  const [dropBoxData2, setDropBoxData2] = useState<DropBoxData | null>(null);
+  const dropBoxRef = useRef<HTMLDivElement | null>(null); // Reference to the dropdown container
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const router = useRouter();
+
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setIsLoggedIn(false);
+    router.push("/sign-in");
+  };
 
   // Ensure component is client-side only
   useEffect(() => {
     setIsClient(true);
+
+    const user = localStorage.getItem("user");
+    if (user) {
+      setIsLoggedIn(true);
+    }
+
+    // Close MenuDropBox if clicked outside of it
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropBoxRef.current && !dropBoxRef.current.contains(event.target as Node)) {
+        setDropBoxData(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
   const toggleMenu = () => {
@@ -24,79 +64,121 @@ const Navbar = () => {
     setSearchOpen(!searchOpen);
   };
 
+  const handleLinkClick = (title: string) => {
+    const descriptions: Record<string, string> = {
+      "About Us": "Learn more about our company's mission and values.",
+      "Corporate & Investment": "Explore corporate solutions and investment opportunities.",
+      "Wealth & Retail": "Manage your wealth and explore retail services tailored for you.",
+      Ventures: "Discover innovative ventures we are pursuing.",
+      Investors: "Information and resources for our investors.",
+      Insights: "Gain insights from our expert research and analysis.",
+      Media: "Stay updated with our latest media coverage.",
+      Careers: "Join our team and grow your career with us.",
+    };
+    
+
+    const links = ["Overview", "Details", "FAQs", "Contact Us"];
+
+    setDropBoxData({ title, description: descriptions[title], links });
+  };
+
+  const handleLScreenLinkClick = (title: string, index: number) => {
+    const descriptions: Record<string, string> = {
+      "About Us": "Learn more about our company's mission and values.",
+      "Corporate & Investment": "Explore corporate solutions and investment opportunities.",
+      "Wealth & Retail": "Manage your wealth and explore retail services tailored for you.",
+      Ventures: "Discover innovative ventures we are pursuing.",
+      Investors: "Information and resources for our investors.",
+      Insights: "Gain insights from our expert research and analysis.",
+      Media: "Stay updated with our latest media coverage.",
+      Careers: "Join our team and grow your career with us.",
+    };
+  
+    const links = ["Overview", "Details", "FAQs", "Contact Us"];
+  
+    setActiveIndex(index);
+    setDropBoxData2({ title, description: descriptions[title], links });
+  };
+  
+
+
   if (!isClient) return null; // Prevent rendering on the server
 
   return (
     <>
       {/* Navbar */}
-      <nav className="justify-between items-center bg-black p-4">
+      <nav className="">
         {/* First Box */}
-        <div className="first-box relative w-full">
+        <div className="first-box">
           <p></p>
-          <ul className="first_box_menu space-x-6">
+          <ul className="first_box_menu">
             <li>
-              <Link href="/online-banking" className="border-r border-white text-white px-4 py-2 hover:bg-gray-800">
+              <Link href="/sign-in" className="">
                 Online Banking
               </Link>
             </li>
             <li>
-              <Link href="/private-banking-online" className="border-r border-white text-white px-4 py-2 hover:bg-gray-800">
+              <Link href="/sign-in" className="">
                 Private Banking Online
               </Link>
             </li>
             <li>
-              <Link href="/straight2bank" className="border-r border-white text-white px-4 py-2 hover:bg-gray-800">
+              <Link href="/sign-in" className="">
                 Straight2bank
               </Link>
             </li>
+            {isLoggedIn ? (
+              <li>
+                <Link href={"/sign-in"} onClick={handleLogout}>
+                   Logout
+                </Link>
+              </li>
+            ) : (
+              <li>
+                <Link href="/sign-in">Log In</Link>
+              </li>
+            )}
             <li>
-              <Link href="/local-sites" className="border-r border-white text-white px-4 py-2 hover:bg-gray-800">
-                Local Sites
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact-us" className="text-white px-4 py-2 hover:bg-gray-800">Contact Us</Link>
+              <Link href="/sign-in" className="">Contact Us</Link>
             </li>
           </ul>
         </div>
 
         {/* Second Box */}
-        <div className="second-box flex items-center space-x-6">
+        <div className="second-box ">
           {/* Hamburger Menu */}
-          <div className="icon-container flex items-center space-x-2">
+          <div className="icon-container ">
               {/* Brand Logo Icon */}
             <Logo2/>
           </div>
 
           <div className="menu_container">
             {/* Navigation Links */}
-            <ul id='menu_bar' className="second_nav flex space-x-6">
-              <li>
-                <Link href="/about-us" className="text-white hover:bg-gray-800 px-4 py-2">About Us</Link>
-              </li>
-              <li>
-                <Link href="/corporate-investment" className="text-white hover:bg-gray-800 px-4 py-2">Corporate & Investment</Link>
-              </li>
-              <li>
-                <Link href="/wealth-retail" className="text-white hover:bg-gray-800 px-4 py-2">Wealth & Retail</Link>
-              </li>
-              <li>
-                <Link href="/ventures" className="text-white hover:bg-gray-800 px-4 py-2">Ventures</Link>
-              </li>
-              <li>
-                <Link href="/investors" className="text-white hover:bg-gray-800 px-4 py-2">Investors</Link>
-              </li>
-              <li>
-                <Link href="/insights" className="text-white hover:bg-gray-800 px-4 py-2">Insights</Link>
-              </li>
-              <li>
-                <Link href="/media" className="text-white hover:bg-gray-800 px-4 py-2">Media</Link>
-              </li>
-              <li>
-                <Link href="/careers" className="text-white hover:bg-gray-800 px-4 py-2">Careers</Link>
-              </li>
-            </ul>
-
+              <ul id="menu_bar" className="second_nav">
+                {[
+                  "About Us",
+                  "Corporate & Investment",
+                  "Wealth & Retail",
+                  "Ventures",
+                  "Investors",
+                  "Insights",
+                  "Media",
+                  "Careers",
+                ].map((item) => (
+                  <li key={item}>
+                    <a
+                      href="/sign-in"
+                      className="text-white"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleLinkClick(item);
+                      }}
+                    >
+                      {item}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             <div className="hamburger_container">
               {/* Search Icon */}
             <div
@@ -116,6 +198,17 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+
+      {/* MenuDropBox */}
+      {dropBoxData && (
+        <MenuDropBox
+          ref={dropBoxRef} // Attach the ref to MenuDropBox
+          title={dropBoxData.title}
+          description={dropBoxData.description}
+          links={dropBoxData.links}
+          onClose={() => setDropBoxData(null)} // Close on cancel button click
+        />
+      )}
 
         {/* Search Container */}
         {searchOpen && (
@@ -142,57 +235,60 @@ const Navbar = () => {
       {menuOpen && (
         <div className={`second_nav ${menuOpen ? 'active' : ''}`}>
           <ul className="drop_dwn space-y-4 px-6 py-4">
-            <li>
-              <Link href="/about-us" className="menu_open_links">
-                <p>About Us</p>
-                <FontAwesomeIcon icon={faArrowRight} />
-              </Link>
-            </li>
-            <li>
-              <Link href="/corporate-investment" className="menu_open_links">
-                <p>Corporate & Investment</p>
-                <FontAwesomeIcon icon={faArrowRight} />
-              </Link>
-            </li>
-            <li>
-              <Link href="/wealth-retail" className="menu_open_links">
-                <p>Wealth & Retail</p>
-                <FontAwesomeIcon icon={faArrowRight} />
-              </Link>
-            </li>
-            <li>
-              <Link href="/ventures" className="menu_open_links">
-                <p>Ventures</p>
-                <FontAwesomeIcon icon={faArrowRight} />
-              </Link>
-            </li>
-            <li>
-              <Link href="/investors" className="menu_open_links">
-                <p>Investors</p>
-                <FontAwesomeIcon icon={faArrowRight} />
-              </Link>
-            </li>
-            <li>
-              <Link href="/insights" className="menu_open_links">
-                <p>Insights</p>
-                <FontAwesomeIcon icon={faArrowRight} />
-              </Link>
-            </li>
-            <li>
-              <Link href="/media" className="menu_open_links">
-                <p>Media</p>
-                <FontAwesomeIcon icon={faArrowRight} />
-              </Link>
-            </li>
-            <li>
-              <Link href="/careers" className="menu_open_links">
-                <p>Careers</p>
-                <FontAwesomeIcon icon={faArrowRight} />
-              </Link>
-            </li>
+            {[
+              "About Us",
+              "Corporate & Investment",
+              "Wealth & Retail",
+              "Ventures",
+              "Investors",
+              "Insights",
+              "Media",
+              "Careers",
+            ].map((item, index) => (
+              <React.Fragment key={item}>
+                <li>
+                  <a
+                    href="/sign-in"
+                    className="menu_open_links"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleLScreenLinkClick(item, index);
+                    }}
+                  >
+                    <p>{item}</p>
+                    <FontAwesomeIcon icon={faArrowRight} />
+                  </a>
+                </li>
+                {activeIndex === index && dropBoxData2 && (
+                  <div className="dropbox_container">
+                    <MenuDropBox2
+                      ref={dropBoxRef}
+                      title={dropBoxData2.title}
+                      description={dropBoxData2.description}
+                      links={dropBoxData2.links}
+                      onClose={() => {
+                        setDropBoxData2(null);
+                        setActiveIndex(null);
+                      }}
+                    />
+                  </div>
+                )}
+              </React.Fragment>
+            ))}
           </ul>
+          <div 
+            style={{
+              textAlign: "left",
+              padding: "20px",
+              color: "#0573eb"
+            }}
+          >
+            <Link href={"/sign-in"}>{">"} Sign In</Link>
+          </div>
         </div>
+        
       )}
+        
     </>
   );
 };

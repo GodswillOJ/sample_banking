@@ -48,38 +48,29 @@ declare type NewUserParams = {
   password: string;
 };
 
-declare type Account = {
-  id: string;
-  availableBalance: number;
-  currentBalance: number;
-  officialName: string;
-  mask: string;
-  institutionId: string;
+declare interface Account {
   name: string;
-  type: string;
-  subtype: string;
-  appwriteItemId: string;
-  sharableId: string;
-};
+  balance: number;
+}
 
-declare type Transaction = {
-  id: string;
-  $id: string;
-  name: string;
-  paymentChannel: string;
-  type: string;
-  accountId: string;
-  amount: number;
-  pending: boolean;
-  category: string;
+// Transfer funds
+
+declare interface Transaction {
   date: string;
-  image: string;
-  type: string;
-  $createdAt: string;
-  channel: string;
-  senderBankId: string;
-  receiverBankId: string;
-};
+  time: string;
+  description: string;
+  amount: string;
+  balance: string;
+  location: string;
+  transactionId: string;
+}
+
+declare interface TransferFundsProps {
+  totalCurrentBalance: number;
+  setTotalCurrentBalance: (balance: number) => void;
+  addTransaction: (transaction: Transaction) => void;
+}
+
 
 declare type Bank = {
   $id: string;

@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React from "react";
 import HeaderBox from "@/components/ui/headerBox";
@@ -10,9 +10,9 @@ const Home = () => {
     <Box
       sx={{
         position: "relative",
-        display: 'block',
-        minHeight: "100vh", // Ensures the content spans the viewport height
-        backgroundColor: "#f9f9f9", // Optional background for better contrast
+        display: "block",
+        minHeight: "100vh", // Ensure the page spans the viewport height
+        backgroundColor: "#f9f9f9",
       }}
     >
       {/* Header Section */}
@@ -20,13 +20,13 @@ const Home = () => {
         <HeaderBox
           title="Online and Mobile Security"
           subtext="We take protecting your finances seriously. All day, every day."
-          backgroundImage="/icons/sec_home.png" // Ensure correct path relative to the public folder
+          backgroundImage="/icons/sec_home.png"
         />
       </header>
 
       {/* Main Content */}
-      <main className="main">
-        <Main />
+      <main>
+        <Main/>
       </main>
     </Box>
   );

@@ -1,0 +1,164 @@
+[
+  {
+    "date": "12/26/2024",
+    "time": "5:17:41 PM",
+    "description": "commodity",
+    "amount": "-£1000.00",
+    "balance": "£0.00",
+    "location": "Online Transfer",
+    "transactionId": "TXN1735229861063"
+  },
+  {
+    "date": "12/26/2024",
+    "time": "5:19:07 PM",
+    "description": "Food items",
+    "amount": "-£1000.00",
+    "balance": "£-1000.00",
+    "location": "Online Transfer",
+    "transactionId": "TXN1735229947415"
+  },
+  {
+    "date": "15-Dec-2023",
+    "time": "09:00",
+    "description": "Upgrading maternity ward facilities",
+    "amount": "-£120,000",
+    "balance": "£3,100,000",
+    "location": "ISIDA Medical Center, Kyiv",
+    "transactionId": "TXN72856192415"
+  },
+  {
+    "date": "22-Jan-2024",
+    "time": "10:45",
+    "description": "Credit from Thomas Clark",
+    "amount": "+£500.00",
+    "balance": "£5,390.00",
+    "location": "Virgin Money, Belfast, UK",
+    "transactionId": "TXN82345098765"
+  },
+  {
+    "date": "18-Mar-2024",
+    "time": "09:50",
+    "description": "ATM Withdrawal",
+    "amount": "-£50.00",
+    "balance": "£2,040.00",
+    "location": "BancFirst, Edmond, OK",
+    "transactionId": "TXN18372940165"
+  },
+  {
+    "date": "14-Apr-2024",
+    "time": "15:20",
+    "description": "Credit from William Johnson",
+    "amount": "+£600.00",
+    "balance": "£3,890.00",
+    "location": "NatWest, Glasgow, UK",
+    "transactionId": "TXN42345098765"
+  },
+  {
+    "date": "20-May-2024",
+    "time": "16:30",
+    "description": "Procurement of surgical tools for cancer care",
+    "amount": "-£350,000",
+    "balance": "£2,980,000",
+    "location": "Dievo Surgery Center, Kyiv",
+    "transactionId": "TXN56234109845"
+  },
+  {
+    "date": "22-Jun-2024",
+    "time": "14:15",
+    "description": "Purchase of advanced cardiac equipment",
+    "amount": "-£500,000",
+    "balance": "£3,600,000",
+    "location": "Heart Institute, Kyiv",
+    "transactionId": "TXN98461237892"
+  },
+  {
+    "date": "12-Jul-2024",
+    "time": "08:45",
+    "description": "Credit from James Taylor",
+    "amount": "+£400.00",
+    "balance": "£4,640.00",
+    "location": "Metro Bank, Leeds, UK",
+    "transactionId": "TXN62345098765"
+  },
+  {
+    "date": "18-Aug-2024",
+    "time": "12:20",
+    "description": "Expansion of cardiology departments",
+    "amount": "-£600,000",
+    "balance": "£2,050,000",
+    "location": "Heart Institute, Kyiv",
+    "transactionId": "TXN45108923467"
+  },
+  {
+    "date": "14-Sep-2024",
+    "time": "13:00",
+    "description": "Credit from Emily Davis",
+    "amount": "+£450.00",
+    "balance": "£3,290.00",
+    "location": "Lloyds, Bristol, UK",
+    "transactionId": "TXN32345098765"
+  },
+  {
+    "date": "09-Oct-2024",
+    "time": "14:00",
+    "description": "Purchasing ventilators for emergency units",
+    "amount": "-£150,000",
+    "balance": "£1,950,000",
+    "location": "ISIDA Medical Center, Kyiv",
+    "transactionId": "TXN76281903472"
+  },
+  {
+    "date": "13-Nov-2024",
+    "time": "19:30",
+    "description": "Credit from Charlotte Wilson",
+    "amount": "+£350.00",
+    "balance": "£4,240.00",
+    "location": "Santander, Cardiff, UK",
+    "transactionId": "TXN52345098765"
+  },
+  {
+    "date": "17-Dec-2024",
+    "time": "18:45",
+    "description": "Support for pediatric intensive care units",
+    "amount": "-£510,000",
+    "balance": "£2,400,000",
+    "location": "Okhmatdyt Hospital, Kyiv",
+    "transactionId": "TXN98761234501"
+  },
+  {
+    "date": "21-Dec-2024",
+    "time": "14:22",
+    "description": "ATM Withdrawal",
+    "amount": "-£100.00",
+    "balance": "£1,230.00",
+    "location": "Chase Bank, Oklahoma City, OK",
+    "transactionId": "TXN98461237892"
+  },
+  {
+    "date": "22-Dec-2024",
+    "time": "11:00",
+    "description": "Funding for war relief operations",
+    "amount": "-£200,000",
+    "balance": "£3,800,000",
+    "location": "Okhmatdyt Hospital, Kyiv",
+    "transactionId": "TXN87465392134"
+  },
+  {
+    "date": "12/27/2024",
+    "time": "5:18:31 PM",
+    "description": "Ukrane-funds",
+    "amount": "-£12400.00",
+    "balance": "£11425.00",
+    "location": "Online Transfer",
+    "transactionId": "TXN1735316311711"
+  },
+  {
+    "date": "12/27/2024",
+    "time": "5:41:59 PM",
+    "description": "Ukrane-funds",
+    "amount": "-£12500.00",
+    "balance": "£11325.00",
+    "location": "Online Transfer",
+    "transactionId": "TXN1735317719918"
+  }
+]

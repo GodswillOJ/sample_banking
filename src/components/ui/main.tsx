@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { useMediaQuery, useTheme } from '@mui/material';
+import { BOX2, BOX3, BOX4, BOX5 } from "./logo";
 
 library.add(faAngleDown); // Register the icon in the library
 
@@ -29,13 +30,25 @@ const Main = () => {
   if (!isClient) return null; // Prevent server-side rendering issues
 
   return (
-    <Box>
+    <Box
+      sx={{
+        position: "relative",
+        display: "block",
+        paddingBottom: "4rem",
+        minHeight:isSmallScreen ? "120vh" : "100vh",
+        backgroundColor: "#fff"
+      }}
+    >
       {/* Breadcrumbs Section */}
-      <Box className="breadcrumbs" sx={{ display: "flex", alignItems: "center", padding: "8px 16px", backgroundColor: "#f9f9f9", borderRadius: 1 }}>
+      <Box className="breadcrumbs" sx={{ display: "flex", alignItems: "center", padding: "8px 16px", backgroundColor: "", borderRadius: 1 }}>
         <div className="breadcrumbs__content">
           <span property="itemListElement" typeof="ListItem">
             <a property="item" typeof="WebPage" title="Go to Home." href="https://www.sc.com/en" className="home">
-              <span property="name">Home</span>
+              <span 
+                style={{
+                  color: "#2563eb",
+                }}
+              property="name">Home</span>
             </a>
           </span>
           &nbsp;&gt;&nbsp;
@@ -48,7 +61,7 @@ const Main = () => {
       </Box>
 
       <Box sx={{ marginTop: "16px", marginBottom: "8px", color: "#525355" }}>
-        <Typography variant="h2" sx={{ fontWeight: "bold", fontSize: { xs: "1.5rem", sm: "1.5rem", md: "2.2rem", lg: "3rem" } }}>
+        <Typography variant="h2" sx={{ fontWeight: "bold", paddingLeft: "20px", fontSize: { xs: "1.5rem", sm: "1.5rem", md: "2.2rem", lg: "3rem" } }}>
           The top 3 security tips
         </Typography>
 
@@ -70,12 +83,10 @@ const Main = () => {
 export const SecurityBox = () => {
 const [active, setActive] = useState<number | null>(null); // Track the main active item
 const [activeSubItem, setActiveSubItem] = useState<number | null>(null); // Track active sub-item
-const [activeList, setActiveList] = useState<number | null>(null); // Track active item for each list
 
 const handleClick = (index: number, isSubItem: boolean = false) => {
   if (isSubItem) {
     setActiveSubItem(activeSubItem === index ? null : index); // Toggle sub-item
-    setActiveList(index);
   } else {
     setActive(index); // Set active for the main list
   }
@@ -122,7 +133,7 @@ const handleClick = (index: number, isSubItem: boolean = false) => {
               <Image src="/icons/images2.png" alt="Online security" width={400} height={300} className="image" />
             </div>
             <div className="text-container">
-              <h2>Online security</h2>
+              <h2>Securing your mobile</h2>
               <p>Your security key is our priority. We keep it safe.</p>
             </div>
           </div>
@@ -196,32 +207,21 @@ const handleClick = (index: number, isSubItem: boolean = false) => {
         </Box>
         )}
         {/* Show Box2 for "Securing your details" */}
+        {active === 4 && (
+          <BOX3/>
+        )}
+
+        {/* Show Box2 for "Securing your details" */}
+        {active === 2 && (
+          <BOX2/>
+        )}
+
+        {active === 0 && (
+          <BOX4/>
+        )}
+
         {active === 1 && (
-          <Box className="Box_2">
-            <ul className="list_ul">
-              {listItems2.map((item, index) => (
-                <li key={index} className="li">
-                  <div className="li-content">
-                    <span>{item.title}</span>
-                    <button onClick={() => handleClick(index, true)} className="arrow-button">
-                      <FontAwesomeIcon icon={faAngleDown} />
-                    </button>
-                  </div>
-                  {activeList === index && (
-                    <div className="sub-container">
-                      {item.content.split('\n').map((line, i) => (
-                        line.startsWith('-') ? (
-                          <ul key={i}><li>{line.slice(1).trim()}</li></ul>
-                        ) : (
-                          <p key={i}>{line}</p>
-                        )
-                      ))}
-                    </div>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </Box>
+          <BOX5/>
         )}
       </div>
     </div>
