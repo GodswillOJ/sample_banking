@@ -24,7 +24,9 @@ interface Transaction {
   balance: string;
   location: string;
   transactionId: string;
+  category: string; // Add this property
 }
+
 
 const Dashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -54,14 +56,16 @@ const Dashboard = () => {
       const data = await res.json();
       setTransactions(data);
   
-      // Set totalCurrentBalance to the balance from the last transaction
       if (data.length > 0) {
         const lastTransaction = data[data.length - 1];
-        setTotalCurrentBalance(parseFloat(lastTransaction.balance.replace('£', '').replace(',', '')));
+        setTotalCurrentBalance(
+          parseFloat(lastTransaction.balance.replace('£', '').replace(',', ''))
+        );
       }
     };
+  
     fetchTransactions();
-  }, []);
+  }, [router, setTransactions, setTotalCurrentBalance]);
   
 
   const handleLogout = () => {

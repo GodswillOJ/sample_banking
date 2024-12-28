@@ -43,6 +43,7 @@ const TransferFunds: React.FC<TransferFundsProps> = ({
       balance: `£${updatedBalance.toFixed(2)}`,
       location: "Online Transfer",
       transactionId: `TXN${Date.now()}`,
+      category:'trn'
     };
 
     setTimeout(() => {

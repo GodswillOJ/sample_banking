@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Image from "next/image"; // Assuming you're using Next.js's Image component
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
 const RightSidebar = ({ user }: { user: { username: string; lastName: string; email: string } }) => {
-  const images = [
-    "/icons/images2.png", 
-    "/icons/loan.jpg", 
-    "/icons/others_.jpg"
-  ];
-
+ 
+  const images = useMemo(
+    () => ["/icons/images2.png", "/icons/loan.jpg", "/icons/others_.jpg"],
+    []
+  );
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 3000); // Change image every 3 seconds
-
+  
     return () => clearInterval(interval); // Cleanup on component unmount
-  }, []);
+  }, [images]);
+  
 
   return (
     <aside className="right-sidebar fixed top-0 right-0 bg-gray-200 z-50 w-64 p-4">

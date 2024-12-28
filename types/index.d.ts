@@ -63,7 +63,9 @@ declare interface Transaction {
   balance: string;
   location: string;
   transactionId: string;
+  category: string; // Add this property
 }
+
 
 declare interface TransferFundsProps {
   totalCurrentBalance: number;
