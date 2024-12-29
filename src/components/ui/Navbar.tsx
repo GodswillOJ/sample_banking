@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faBars, faTimes, faArrowRight} from "@fortawesome/free-solid-svg-icons";
-import {Logo2} from "./logo";
+import {Logo4} from "./logo";
 import {MenuDropBox, MenuDropBox2} from "./MenuDropBox";
 import { useRouter } from "next/navigation";
 
@@ -147,10 +147,11 @@ const Navbar = () => {
         {/* Second Box */}
         <div className="second-box ">
           {/* Hamburger Menu */}
-          <div className="icon-container ">
-              {/* Brand Logo Icon */}
-            <Logo2/>
-          </div>
+          <div className="icon-container">
+            {/* Brand Logo Icon */}
+          <Logo4 />
+        </div>
+
 
           <div className="menu_container">
             {/* Navigation Links */}

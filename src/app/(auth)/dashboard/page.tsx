@@ -170,14 +170,14 @@ const Dashboard = () => {
                 <Box className="breadcrumbs" sx={{ display: "flex", alignItems: "center", padding: "8px 16px", backgroundColor: "", borderRadius: 1 }}>
                   <div className="breadcrumbs__content">
                     <span property="itemListElement" typeof="ListItem">
-                      <a property="item" typeof="WebPage" title="Go to Home." href="/dashboard" className="home">
-                        <span style={{ color: "#2563eb" }} property="name">Dashboard</span>
+                      <a property="item" typeof="WebPage" title="Go to Home." href="/" className="home">
+                        <span style={{ color: "#2563eb" }} property="name">Home</span>
                       </a>
                     </span>
                     &nbsp;&gt;&nbsp;
                     <span property="itemListElement" typeof="ListItem">
                       <span property="name" className="post post-page current-item" style={{ color: "#525355" }}>
-                        New transaction
+                        transactions
                       </span>
                     </span>
                   </div>

@@ -6,7 +6,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 const RightSidebar = ({ user }: { user: { username: string; lastName: string; email: string } }) => {
  
   const images = useMemo(
-    () => ["/icons/images2.png", "/icons/loan.jpg", "/icons/others_.jpg"],
+    () => ["/icons/old_j.jpg", "/icons/loan.jpg", "/icons/others_.jpg"],
     []
   );
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
