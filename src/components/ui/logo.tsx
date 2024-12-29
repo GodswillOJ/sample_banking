@@ -5,12 +5,11 @@ import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 
 const Logo = () => {
-  // <svg class="signin-branding__logo--full" role="img" aria-labelledby=""></svg>
   return (
     <div>
       <svg
         className="site-branding__logo--full"
-        viewBox="0 0 157 62"
+        // viewBox="0 0 157 62"
         role="img"
         aria-labelledby="sc-logo"
       >
@@ -377,4 +376,4 @@ const BOX5 = () => {
   );
 };
 
-export {Logo2, Logo, Logo3, Logo4, BOX2, BOX3, BOX4, BOX5}
+export { Logo2, Logo, Logo3, Logo4, BOX2, BOX3, BOX4, BOX5 }
