@@ -147,8 +147,6 @@ nav .first-box .first_box_menu li a:hover {
 }
 
 .site-branding__logo--full {
-  width: auto; /* Or a specific width, e.g., 100px */
-  height: auto; /* Or a specific height */
   max-width: 100%; /* Ensures responsiveness */
   display: inline-block;
 }

@@ -10,6 +10,8 @@ const Logo = () => {
       <svg
         className="site-branding__logo--full"
         // viewBox="0 0 157 62"
+        width="157"
+        height="62"
         role="img"
         aria-labelledby="sc-logo"
       >
@@ -54,6 +56,8 @@ const Logo4 = () => {
       <svg
         className="site-branding__logo--full"
         // viewBox="0 0 157 62"
+        width="157"
+        height="62"
         role="img"
         aria-labelledby="sc-logo"
       >
@@ -96,6 +100,8 @@ const Logo2 = () => {
   return (
               <svg className="site-branding__logo--full" 
                     // viewBox="0 0 157 62" 
+                    width="157"
+                    height="62"
                     role="img" 
                     aria-labelledby="sc-logo" 
                     fill="none" 
@@ -121,7 +127,9 @@ const Logo2 = () => {
 const Logo3 = () => {
   return (
               <svg className="signin-branding__logo--full" 
-                    // viewBox="0 0 157 62" 
+                    // viewBox="0 0 157 62"
+                    width="157"
+                    height="62" 
                     role="img" 
                     aria-labelledby="sc-logo"
                     >
