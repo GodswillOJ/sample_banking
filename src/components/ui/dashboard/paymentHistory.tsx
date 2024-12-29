@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 import TotalBalanceBox from "./totalBalanceBox";
@@ -21,7 +21,7 @@ const PaymentHistory: React.FC<PaymentHistoryProps> = ({ transactions, totalCurr
   const rowsPerPage = 10;
 
   // Update bank balances based on the transactions
-  const updateBankBalances = (transactions: Transaction[]) => {
+  const updateBankBalances = useCallback((transactions: Transaction[]) => {
     const updatedAccounts = [...accounts];
     transactions.forEach((txn) => {
       if (txn.amount.startsWith("-")) {
@@ -34,19 +34,19 @@ const PaymentHistory: React.FC<PaymentHistoryProps> = ({ transactions, totalCurr
             : txn.location === "Bank 3"
             ? 2
             : -1;
-
+  
         if (bankIndex !== -1) {
           updatedAccounts[bankIndex].balance -= amount;
         }
       }
     });
-
+  
     setAccounts(updatedAccounts);
-  };
-
+  }, [accounts]);
+  
   useEffect(() => {
     updateBankBalances(transactions);
-  }, [transactions]);
+  }, [transactions, updateBankBalances]);  
 
   // Filter transactions based on the active tab
   const tabFilteredTransactions = transactions.filter((txn) => {

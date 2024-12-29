@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { Sidebar2 } from "@/components/ui/Sidebar";
 import TotalBalanceBox from "@/components/ui/dashboard/totalBalanceBox";
 import { Box } from "@mui/material";
@@ -126,9 +127,9 @@ const Dashboard = () => {
             <Box className="breadcrumbs" sx={{ display: "flex", alignItems: "center", padding: "8px 16px", backgroundColor: "", borderRadius: 1 }}>
               <div className="breadcrumbs__content">
                 <span property="itemListElement" typeof="ListItem">
-                  <a property="item" typeof="WebPage" title="Go to Home." href="https://www.sc.com/en" className="home">
-                    <span style={{ color: "#2563eb" }} property="name text-2xl font-bold mb-4">Welcome, </span>
-                  </a>
+                  <Link property="item" typeof="WebPage" title="Go to Home." href="https://www.sc.com/en" className="home">
+                      <span style={{ color: "#2563eb" }} property="name text-2xl font-bold mb-4">Welcome, </span>
+                  </Link>
                 </span>
                 <span property="itemListElement" typeof="ListItem">
                   <span property="name" className="post post-page current-item" style={{ color: "#000", fontWeight: "bold" }}>
@@ -170,9 +171,9 @@ const Dashboard = () => {
                 <Box className="breadcrumbs" sx={{ display: "flex", alignItems: "center", padding: "8px 16px", backgroundColor: "", borderRadius: 1 }}>
                   <div className="breadcrumbs__content">
                     <span property="itemListElement" typeof="ListItem">
-                      <a property="item" typeof="WebPage" title="Go to Home." href="/" className="home">
-                        <span style={{ color: "#2563eb" }} property="name">Home</span>
-                      </a>
+                      <Link property="item" typeof="WebPage" title="Go to Home." href="/" className="home">
+                          <span style={{ color: "#2563eb" }} property="name">Home</span>
+                      </Link>
                     </span>
                     &nbsp;&gt;&nbsp;
                     <span property="itemListElement" typeof="ListItem">
