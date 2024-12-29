@@ -93,7 +93,7 @@ const SignInPage = () => {
               <Link href="/sign-in">Local Sites</Link>
             </li>
             <li>
-              <Link href="/sign-in">Contact Us</Link>
+              <Link href="/">Home</Link>
             </li>
           </ul>
         </div>
