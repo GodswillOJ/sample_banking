@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const Logo = () => {
   return (
-    <div>
+
       <svg
         className="site-branding__logo--full"
         viewBox="0 0 157 62"
@@ -44,13 +44,13 @@ const Logo = () => {
           </tspan>
         </text>
       </svg>
-    </div>
+    
   );
 };
 
 const Logo4 = () => {
   return (
-    <div>
+    
       <svg
         className="site-branding__logo--full"
         viewBox="0 0 157 62"
@@ -88,13 +88,12 @@ const Logo4 = () => {
           </tspan>
         </text>
       </svg>
-    </div>
+    
   );
 };
 
 const Logo2 = () => {
   return (
-    <div>
               <svg className="site-branding__logo--full" 
                     viewBox="0 0 157 62" 
                     role="img" 
@@ -116,13 +115,11 @@ const Logo2 = () => {
                   <tspan x="55" dy="18">chartered</tspan>
                 </text>
               </svg>
-    </div>
   )
 }
 
 const Logo3 = () => {
   return (
-    <div>
               <svg className="signin-branding__logo--full" 
                     viewBox="0 0 157 62" 
                     role="img" 
@@ -143,7 +140,6 @@ const Logo3 = () => {
                   <tspan x="55" dy="18">chartered</tspan>
                 </text>
               </svg>
-    </div>
   )
 }
 
