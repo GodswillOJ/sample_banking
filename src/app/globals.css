@@ -147,12 +147,12 @@ nav .first-box .first_box_menu li a:hover {
 }
 
 .site-branding__logo--full {
-  display: flex;
-  width: 140;
-  height: 42;
-  padding: 2px;
-  fill: none;
+  width: auto; /* Or a specific width, e.g., 100px */
+  height: auto; /* Or a specific height */
+  max-width: 100%; /* Ensures responsiveness */
+  display: inline-block;
 }
+
 
 .logo-lettering {
   font-size: 20px;
