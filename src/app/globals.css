@@ -148,8 +148,8 @@ nav .first-box .first_box_menu li a:hover {
 
 .site-branding__logo--full {
   display: flex;
-  width: 15%; /* Set a relative width */
-  max-width: 150px; /* Add a maximum width for larger screens */
+  width: 30%; /* Set a relative width */
+  max-width: 200px; /* Add a maximum width for larger screens */
   height: auto; /* Maintain the aspect ratio */
   padding: 2px;
   fill: none;

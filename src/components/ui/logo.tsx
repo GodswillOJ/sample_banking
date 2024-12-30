@@ -9,11 +9,10 @@ const Logo = () => {
 
       <svg
         className="site-branding__logo--full"
-        // viewBox="0 0 157 62"
-        width="157"
-        height="62"
         role="img"
         aria-labelledby="sc-logo"
+        viewBox="0 0 157 60" /* Adjust as per the SVG content */
+        preserveAspectRatio="xMidYMid meet"
       >
         <title id="sc-logo">Standard Chartered</title>
         <path
@@ -96,10 +95,11 @@ const Logo4 = () => {
 const Logo2 = () => {
   return (
               <svg
-                className="w-full h-auto  text-bl"
-                width="150%"
+                className="site-branding__logo--full"
                 role="img"
                 aria-labelledby="sc-logo"
+                viewBox="0 0 157 60" /* Adjust as per the SVG content */
+                preserveAspectRatio="xMidYMid meet"
               >
 
                 <title id="sc-logo">Standard Chartered</title>
@@ -122,12 +122,12 @@ const Logo2 = () => {
 
 const Logo3 = () => {
   return (
-              <svg className="signin-branding__logo--full" 
-                    // viewBox="0 0 157 62"
-                    width="157"
-                    height="62" 
-                    role="img" 
-                    aria-labelledby="sc-logo"
+              <svg 
+                className="site-branding__logo--full"
+                role="img"
+                aria-labelledby="sc-logo"
+                viewBox="0 0 157 60" /* Adjust as per the SVG content */
+                preserveAspectRatio="xMidYMid meet"
                     >
                 <title id="sc-logo">Standard Chartered</title>
                 <path fillRule="evenodd" clipRule="evenodd" className="icon-part-green" d="M28.9647 13.5687C29.8849 12.9703 30.8283 12.553 32.1542 12.5527C35.1952 12.5521 37.6604 15.0148 37.6604 18.052C37.6604 21.0891 35.1952 23.5511 32.1542 23.5511C30.8691 23.5511 29.894 23.1327 28.9647 22.5351L22.0721 18.052L28.9647 13.5687ZM4.21638 43.8988L30.0411 60.6903C32.5584 62.3193 36.0669 61.7306 37.7741 59.0631C39.4362 56.4661 38.7301 53.0234 36.1448 51.34L2.62803 29.5401C2.62803 29.5401 -0.805552 33.7103 0.23567 38.5748C0.977282 42.0396 4.21638 43.8988 4.21638 43.8988Z" fill="#38D200"></path>
