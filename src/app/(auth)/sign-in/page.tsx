@@ -21,6 +21,8 @@ const SignInPage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [credentials, setCredentials] = useState<Credentials>({});
   const router = useRouter(); // App Router useRouter
+  const [isForgotPasswordVisible, setIsForgotPasswordVisible] = useState(false);
+  const [resetMessage, setResetMessage] = useState<string | null>(null);
   const [isLoggingIn, setIsLoggingIn] = useState(false); // New state
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -141,6 +143,7 @@ const SignInPage = () => {
               Sign Up
             </li>
           </ul>
+          {!isForgotPasswordVisible ? (
           <form
             className="form"
             style={{ display: activeTab === "Login" ? "grid" : "none" }}
@@ -164,10 +167,51 @@ const SignInPage = () => {
               {isLoggingIn ? "Logging in..." : "Login"}
             </button>
             <div id="login-links">
-              <Link href="/forgot-username">Forgot Username</Link>
-              <Link href="/forgot-password">Forgot Password</Link>
+              <button type="button" onClick={() => setIsForgotPasswordVisible(true)}>Forgot Username</button>
+              <button type="button" onClick={() => setIsForgotPasswordVisible(true)}>Forgot Password</button>
             </div>
           </form>
+        ) : (
+          <form
+            className="form space-y-4"
+            onSubmit={(e) => {
+              e.preventDefault();
+              const resetType = credentials.username?.includes("@") ? "email" : "phone";
+              setResetMessage(
+                resetType === "email"
+                  ? "Password reset email sent to your registered mail."
+                  : "Reset message sent to your phone."
+              );
+              // Clear the field
+              setCredentials((prev) => ({ ...prev, username: "" }));
+            }}
+          >
+            {resetMessage && <p className="text-green-600 pt-10">{resetMessage}</p>}
+            <input
+              type="text"
+              name="username"
+              placeholder="Enter your registered email or phone number"
+              value={credentials.username || ""}
+              required
+              onChange={handleInputChange}
+            />
+            <button
+              type="submit"
+              className="submit-button bg-blue-500 text-white p-2 rounded"
+            >
+              Submit
+            </button>
+            <button
+              type="button"
+              className="back-button text-blue-500 p-2 rounded"
+              onClick={() => setIsForgotPasswordVisible(false)}
+            >
+              Back to Login
+            </button>
+          </form>
+        )}
+
+
           <form
             className="form space-y-4"
             style={{ display: activeTab === "SignUp" ? "grid" : "none" }}

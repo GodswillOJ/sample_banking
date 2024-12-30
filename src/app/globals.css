@@ -919,7 +919,7 @@ main{
   color:  #626161;
 }
 
-#login-links a:hover {
+#login-links button:hover {
   color:  #9a0202;
 }
 
@@ -1102,4 +1102,10 @@ main{
     padding: 20px;
   }
   
+}
+
+/* forget password fxn */
+.back-button {
+  margin-top: 1rem;
+  border: 1px solid #0073e6;
 }
