@@ -690,6 +690,12 @@ main{
   align-items: center;
 }
 
+.logo-container{
+  position: relative;
+  bottom: 1rem;
+  padding-left: 1rem;
+}
+
 .logo-container .logo {
   color: #fff;
 }
@@ -957,7 +963,7 @@ main{
   display: flex;
   flex-direction: column;
   gap: 50;
-  width: 50%;
+  width: 100%;
   padding: 40px;
   box-shadow: 2px 0 5px rgba(239, 239, 239, 0.3);
   border-radius: 10px;
@@ -981,6 +987,12 @@ main{
   .sidebar {
     display: none;
   }
+  .logo-container{
+    position: relative;
+    bottom: 0;
+    padding-left: 0;
+  }
+  
 }
 
 

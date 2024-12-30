@@ -60,9 +60,7 @@ const SignInPage = () => {
       {/* Navbar */}
       <nav className="navbar flex items-center justify-between p-2 bg-gray-800 text-white">
         <div className="logo-container">
-          
-            <Logo3 />
-  
+          <Logo3 />
         </div>
         {/* Hamburger */}
         <div className="lg:hidden">
