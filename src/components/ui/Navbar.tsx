@@ -213,24 +213,29 @@ const Navbar = () => {
 
         {/* Search Container */}
         {searchOpen && (
-          <div className="box_search">
-            <div className="search-container">
-              <div className="search-box">
-                <div className="inner-box">
-                  <input
-                    type="text"
-                    placeholder="Search sc.com"
-                    className="search-input"
-                  />
-                  <div className="search-action">
-                    <span>Search</span>
-                    <FontAwesomeIcon className="search_icon_icon" icon={faSearch} />
-                  </div>
+        <div className="box_search">
+          <div className="search-container">
+            {/* Close Icon */}
+            <div className="close-icon" onClick={() => setSearchOpen(false)}>
+              <FontAwesomeIcon icon={faTimes} />
+            </div>
+            <div className="search-box">
+              <div className="inner-box">
+                <input
+                  type="text"
+                  placeholder="Search sc.com"
+                  className="search-input"
+                />
+                <div className="search-action">
+                  <span>Search</span>
+                  <FontAwesomeIcon className="search_icon_icon" icon={faSearch} />
                 </div>
               </div>
             </div>
           </div>
-        )}
+        </div>
+      )}
+
 
       {/* Second Nav - Appears when menu is open */}
       {menuOpen && (
@@ -281,10 +286,10 @@ const Navbar = () => {
             style={{
               textAlign: "left",
               padding: "20px",
-              color: "#0573eb"
+              
             }}
           >
-            <Link href={"/sign-in"}>{">"} Sign In</Link>
+            <Link href={"/sign-in"}>Sign In</Link>
           </div>
         </div>
         
