@@ -149,8 +149,8 @@ const Navbar = () => {
           {/* Hamburger Menu */}
           <div className="icon-container">
             {/* Brand Logo Icon */}
-          <Logo4 />
-        </div>
+              <Logo4 />
+            </div>
 
 
           <div className="menu_container">

@@ -147,25 +147,29 @@ nav .first-box .first_box_menu li a:hover {
 }
 
 .site-branding__logo--full {
-  max-width: 100%; /* Ensures responsiveness */
-  display: inline-block;
+  display: flex;
+  width: 15%; /* Set a relative width */
+  max-width: 150px; /* Add a maximum width for larger screens */
+  height: auto; /* Maintain the aspect ratio */
+  padding: 2px;
+  fill: none;
 }
-
 
 .logo-lettering {
-  font-size: 20px;
+  font-size: 1rem; /* Use relative units for font size */
   color: #000;
-  font-family: ' Prosper Sans Regular' sans-serif;
+  font-family: 'Prosper Sans Regular', sans-serif;
 }
 
-
-@media  (max-width:1219px) {
-  .logo-lettering2 {
-    color: #FFF;
+@media (max-width: 768px) {
+  .site-branding__logo--full {
+    width: 25%; /* Increase relative width for smaller screens */
+    max-width: 100px; /* Reduce maximum width */
   }
-  .logo_carrier{
-    position: relative;
-    justify-items: "center"
+
+  .logo-lettering {
+    font-size: 0.8rem; /* Adjust font size for smaller screens */
+    color: #FFF;
   }
 }
 
