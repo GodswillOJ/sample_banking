@@ -75,9 +75,9 @@ const Sidebar2 =  ({
   <div
     className={`fixed top-0 left-0 h-full w-64 bg-gray-800 z-50 transform transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "-translate-x-full"}`} // Sidebar visibility controlled by `isOpen`
   >
-    <div className="flex justify-between items-center bg-gray-900 text-white">
+    <div className="side-icon_container flex justify-between items-center bg-gray-900 text-white">
       {/* Hamburger Button */}
-      <h1 className="text-2xl font-semibold"><Logo3 /></h1>
+      <h1 className="logo-container"><Logo3 /></h1>
       {/* Sidebar toggle button */}
       <button onClick={toggleSidebar} className="text-white">
         <FontAwesomeIcon icon={faTimes} />

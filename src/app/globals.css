@@ -1012,6 +1012,11 @@ main{
   .insights-section{
     width: 80%;
   } 
+
+  .side-icon_container{
+    padding: 0 5px 0 10px;
+  }
+  
   
 }
 
@@ -1093,4 +1098,8 @@ main{
   .home_logo_{
     padding: 10;
   }
+  .side-icon_container{
+    padding: 20px;
+  }
+  
 }
