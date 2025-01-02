@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Box } from "@mui/material";
+import Link from "next/link";
 
 const BuyData: React.FC = () => {
   const [dataService, setDataService] = useState("");
@@ -79,6 +81,21 @@ const BuyData: React.FC = () => {
           </button>
         </div>
       )}
+        <Box className="breadcrumbs" sx={{ display: "flex", alignItems: "center", padding: "8px 16px", backgroundColor: "", borderRadius: 1 }}>
+        <div className="breadcrumbs__content">
+            <span property="itemListElement" typeof="ListItem">
+            <Link property="item" typeof="WebPage" title="Go to Home." href="/dashboard" className="home">
+                <span style={{ color: "#2563eb" }} property="name">Dashboard</span>
+            </Link>
+            </span>
+            &nbsp;&gt;&nbsp;
+            <span property="itemListElement" typeof="ListItem">
+            <span property="name" className="post post-page current-item" style={{ color: "#525355" }}>
+                transactions
+            </span>
+            </span>
+        </div>
+        </Box>
 
       <h1 className="transfer_text text-2xl font-bold mb-6">Buy Data</h1>
       <form onSubmit={handleSubmit} className="bg-gray-100 p-6 rounded shadow-lg space-y-4">
