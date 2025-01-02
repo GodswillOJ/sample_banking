@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 import TotalBalanceBox from "./totalBalanceBox";
 
 interface PaymentHistoryProps {
   transactions: Transaction[];
-  totalCurrentBalance: number; // Add this prop
+  totalCurrentBalance: number;
 }
 
 const PaymentHistory: React.FC<PaymentHistoryProps> = ({ transactions, totalCurrentBalance }) => {
@@ -21,32 +21,33 @@ const PaymentHistory: React.FC<PaymentHistoryProps> = ({ transactions, totalCurr
   const rowsPerPage = 10;
 
   // Update bank balances based on the transactions
-  const updateBankBalances = useCallback((transactions: Transaction[]) => {
-    const updatedAccounts = [...accounts];
-    transactions.forEach((txn) => {
-      if (txn.amount.startsWith("-")) {
-        const amount = parseFloat(txn.amount.replace("-", ""));
-        const bankIndex =
-          txn.location === "Bank 1"
-            ? 0
-            : txn.location === "Bank 2"
-            ? 1
-            : txn.location === "Bank 3"
-            ? 2
-            : -1;
-  
-        if (bankIndex !== -1) {
-          updatedAccounts[bankIndex].balance -= amount;
-        }
-      }
-    });
-  
-    setAccounts(updatedAccounts);
-  }, [accounts]);
-  
   useEffect(() => {
-    updateBankBalances(transactions);
-  }, [transactions, updateBankBalances]);  
+    const updateBankBalances = () => {
+      setAccounts((prevAccounts) => {
+        const updatedAccounts = [...prevAccounts];
+        transactions.forEach((txn) => {
+          if (txn.amount.startsWith("-")) {
+            const amount = parseFloat(txn.amount.replace("-", ""));
+            const bankIndex =
+              txn.location === "Bank 1"
+                ? 0
+                : txn.location === "Bank 2"
+                ? 1
+                : txn.location === "Bank 3"
+                ? 2
+                : -1;
+
+            if (bankIndex !== -1) {
+              updatedAccounts[bankIndex].balance -= amount;
+            }
+          }
+        });
+        return updatedAccounts;
+      });
+    };
+
+    updateBankBalances();
+  }, [transactions]);
 
   // Filter transactions based on the active tab
   const tabFilteredTransactions = transactions.filter((txn) => {
@@ -75,12 +76,11 @@ const PaymentHistory: React.FC<PaymentHistoryProps> = ({ transactions, totalCurr
         <TotalBalanceBox
           accounts={accounts}
           totalBanks={accounts.length}
-          totalCurrentBalance={totalCurrentBalance} // Use the prop here
+          totalCurrentBalance={totalCurrentBalance}
         />
       </div>
 
-      {/* Rest of the component remains unchanged */}
-            {/* Tabs */}
+      {/* Tabs */}
       <div className="trans_button flex flex-col sm:flex-row mb-4 gap-2 sm:gap-0">
         <button
           className={`flex-1 px-4 py-2 text-sm sm:text-base ${
@@ -168,6 +168,5 @@ const PaymentHistory: React.FC<PaymentHistoryProps> = ({ transactions, totalCurr
     </div>
   );
 };
-
 
 export default PaymentHistory;

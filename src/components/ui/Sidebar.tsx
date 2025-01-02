@@ -28,7 +28,6 @@ import {
     profileImage: "/icons/old_j.jpg", // Replace with the actual image path
   };
 
-
   
 const Sidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => (
   <div
@@ -61,29 +60,33 @@ const Sidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
   </div>
 );
 
-const Sidebar2 =  ({
+const Sidebar2 = ({
   isOpen,
   toggleSidebar,
   setActiveComponent,
-  handleLogout, // Accept handleLogout as a prop
+  handleLogout,
 }: {
   isOpen: boolean;
   toggleSidebar: () => void;
   setActiveComponent: (component: string) => void;
-  handleLogout: () => void; // Define the type for handleLogout
-}) => (
-  <div
-    className={`fixed top-0 left-0 h-full w-64 bg-gray-800 z-50 transform transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "-translate-x-full"}`} // Sidebar visibility controlled by `isOpen`
-  >
-    <div className="side-icon_container flex justify-between items-center bg-gray-900 text-white">
-      {/* Hamburger Button */}
-      <h1 className="logo-container"><Logo3 /></h1>
-      {/* Sidebar toggle button */}
-      <button onClick={toggleSidebar} className="text-white">
-        <FontAwesomeIcon icon={faTimes} />
-      </button>
-    </div>
-    <ul className="text-white text-lg p-4 space-y-4">
+  handleLogout: () => void;
+}) => {
+  return (
+    <div
+      className={`fixed top-0 left-0 h-full w-64 bg-gray-800 z-50 transform transition-transform duration-300 ease-in-out ${
+        isOpen ? "translate-x-0" : "-translate-x-full"
+      }`}
+    >
+      <div className="side-icon_container flex justify-between items-center bg-gray-900 text-white">
+        <h1 className="logo-container">
+          <Logo3 />
+        </h1>
+        <button onClick={toggleSidebar} className="text-white">
+          {/* Hamburger icon */}
+          <FontAwesomeIcon icon={faTimes} />
+        </button>
+      </div>
+      <ul className="text-white text-lg p-4 space-y-4">
       <li className="hover:text-yellow-300 flex items-center cursor-pointer" onClick={() => setActiveComponent("dashboard")}>
         <FontAwesomeIcon icon={faDashboard} className="mr-3" />
         Dashboard
@@ -137,7 +140,9 @@ const Sidebar2 =  ({
         }}
       >{user.username}</p>
     </div>
-  </div>
-);
+    </div>
+  );
+};
+
 
 export { Sidebar, Sidebar2 };

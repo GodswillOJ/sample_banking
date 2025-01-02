@@ -207,7 +207,7 @@ const Dashboard = () => {
           </button>
           <button onClick={handleLogout} className="log_out">Logout</button>
         </div>
-        <main className="p-8 flex-1" style={{ background: "#fff", borderRadius: "20px", margin: "2rem", boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)" }}>
+        <main className="dashboard_main p-8 flex-1" style={{ background: "#fff", borderRadius: "20px", margin: "2rem", boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)" }}>
           {renderContent()}
         </main>
         <Footer2 />

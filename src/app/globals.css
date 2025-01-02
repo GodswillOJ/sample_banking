@@ -942,6 +942,10 @@ main{
     flex-direction: column;
     gap: 30;
   }
+
+  .dashboard_main {
+    margin: 1rem;
+  }
 }
 
 .overlay {
