@@ -126,7 +126,7 @@ const TransferFunds: React.FC<TransferFundsProps> = ({
         </div>
       )}
 
-      <h1 className="text-2xl font-bold mb-6">Transfer Funds</h1>
+      <h1 className="transfer_text text-2xl font-bold mb-6">Transfer Funds</h1>
       <form
         onSubmit={handleSubmit}
         className="bg-gray-100 p-6 rounded shadow-lg space-y-4"

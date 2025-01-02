@@ -945,6 +945,16 @@ main{
 
   .dashboard_main {
     margin: 1rem;
+    padding: 0;
+  }
+
+  .transfer_text{
+    padding: 10px;
+    text-align: center;
+  }
+
+  .about_container{
+    padding: 0;
   }
 }
 

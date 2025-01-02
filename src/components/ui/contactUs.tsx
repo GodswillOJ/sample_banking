@@ -2,7 +2,7 @@ import React from "react";
 
 const ContactUs = () => {
   return (
-    <div className="container mx-auto p-8">
+    <div className="about_container container mx-auto p-8">
       {/* Breadcrumbs */}
       <div className="breadcrumbs text-gray-600 mb-6">
         <span className="font-bold">Home</span> &gt; <span>Contact Us</span>
