@@ -80,7 +80,7 @@ const PayBills: React.FC = () => {
         </div>
       )}
 
-      <h1 className="text-2xl font-bold mb-6">Pay Bills</h1>
+      <h1 className="transfer_text text-2xl font-bold mb-6">Pay Bills</h1>
       <form onSubmit={handleSubmit} className="bg-gray-100 p-6 rounded shadow-lg space-y-4">
         <div>
           <label htmlFor="serviceProvider" className="block text-sm font-medium text-gray-700">

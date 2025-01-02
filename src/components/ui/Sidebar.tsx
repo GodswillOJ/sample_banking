@@ -42,6 +42,9 @@ const Sidebar = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) 
     </div>
     <ul className="text-dull-yellow text-lg p-4 space-y-4">
       <li className="hover:text-yellow-300">
+        <Link href="/">Home</Link>
+      </li>
+      <li className="hover:text-yellow-300">
         <Link href="/sign-in">Online Banking</Link>
       </li>
       <li className="hover:text-yellow-300">

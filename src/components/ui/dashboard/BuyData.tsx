@@ -80,7 +80,7 @@ const BuyData: React.FC = () => {
         </div>
       )}
 
-      <h1 className="text-2xl font-bold mb-6">Buy Data</h1>
+      <h1 className="transfer_text text-2xl font-bold mb-6">Buy Data</h1>
       <form onSubmit={handleSubmit} className="bg-gray-100 p-6 rounded shadow-lg space-y-4">
         <div>
           <label htmlFor="dataService" className="block text-sm font-medium text-gray-700">

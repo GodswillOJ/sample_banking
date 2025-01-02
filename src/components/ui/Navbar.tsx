@@ -240,6 +240,15 @@ const Navbar = () => {
       {/* Second Nav - Appears when menu is open */}
       {menuOpen && (
         <div className={`second_nav ${menuOpen ? 'active' : ''}`}>
+          <div 
+            style={{
+              textAlign: "left",
+              padding: "20px",
+              
+            }}
+          >
+            <Link href={"/sign-in"}>Sign In</Link>
+          </div>
           <ul className="drop_dwn space-y-4 px-6 py-4">
             {[
               "About Us",
@@ -282,15 +291,6 @@ const Navbar = () => {
               </React.Fragment>
             ))}
           </ul>
-          <div 
-            style={{
-              textAlign: "left",
-              padding: "20px",
-              
-            }}
-          >
-            <Link href={"/sign-in"}>Sign In</Link>
-          </div>
         </div>
         
       )}
