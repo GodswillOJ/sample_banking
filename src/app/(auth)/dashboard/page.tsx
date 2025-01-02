@@ -16,6 +16,8 @@ import ContactUs from "@/components/ui/contactUs";
 import LifeStyle from "@/components/ui/dashboard/lifeStyle";
 import Services from "@/components/ui/dashboard/services";
 import { Footer2 } from "@/components/ui/footer";
+import BuyData from "@/components/ui/dashboard/BuyData";
+import PayBills from "@/components/ui/dashboard/PayyBills";
 
 interface Transaction {
   date: string;
@@ -162,6 +164,10 @@ const Dashboard = () => {
         return <Services />;
       case "contactUs":
         return <ContactUs />;
+      case "BuyData":
+        return <BuyData />;
+      case "PayBills":
+        return <PayBills />;
       case "dashboard":
       default:
         return (

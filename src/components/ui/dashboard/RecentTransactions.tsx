@@ -55,12 +55,20 @@ const RecentTransactions: React.FC<RecentTransactionsProps> = ({ setActiveCompon
           >
             Transfer
           </button>
-          <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+
+          <button 
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          onClick={() => setActiveComponent("BuyData")} >
             Buy Data
           </button>
-          <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+
+
+          <button 
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          onClick={() => setActiveComponent("PayBills")} >
             Pay Bills
           </button>
+
         </div>
       </div>
 
