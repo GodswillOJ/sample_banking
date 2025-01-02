@@ -1,9 +1,9 @@
 let users = [
   {
-    username: "george",
-    email: "george@gmail.com",
-    lastName: "allan",
-    password: "geo", // In real applications, use hashed passwords
+    username: "patricia",
+    email: "patricia_obrien@gmail.com",
+    lastName: "obrien",
+    password: "pat", // In real applications, use hashed passwords
   },
 ]; // Temporary storage for user data with a default user
 

@@ -842,6 +842,7 @@ main{
   padding: 30px;
   justify-self: center;
   border-radius: 10px;
+  font-family: SCSans-Light;
 }
 .login-section h2 {
   font-size: 22px;
@@ -898,6 +899,7 @@ main{
 
 .notice-text {
   font-size: 1rem; /* Default font size */
+  font-family: SC Prosper Sans Medium,Helvetica,Arial,Lucida Grande,sans-serif;
   line-height: 1.5;
 }
 
